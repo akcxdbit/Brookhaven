@@ -1,0 +1,18 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("AKC Group | Brookhaven 🏡RP", "DarkTheme")
+local Tab = Window:NewTab("Unban House")
+local Section = Tab:NewSection("Select Player House")
+Plr = {}
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(Plr,v.Name) 
+end
+local drop = Section:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
+   PlayerTP = t
+end)
+Section:NewButton("Click To TP", "", function()
+  game.Workspace.["001_Lots"].[PlayerTP].HousePickedByPlayer.HouseModel.BannedBlock12.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+end)
+
+Section:NewButton("Refresh","Refresh Dropdown", function()
+  drop:Refresh(Plr)
+end)
