@@ -10,7 +10,7 @@ local drop = Section:NewDropdown("Select Player!", "Click To Select", Plr, funct
    PlayerTP = t
 end)
 Section:NewButton("Click To TP", "", function()
-  game.Workspace.["001_Lots"].[PlayerTP].HousePickedByPlayer.HouseModel.BannedBlock12.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+  game.Workspace.["001_Lots"].[PlayerTP].HousePickedByPlayer.HouseModel.BannedBlock12:Destroy()
 end)
 
 Section:NewButton("Refresh","Refresh Dropdown", function()
